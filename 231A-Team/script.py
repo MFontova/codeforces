@@ -1,3 +1,6 @@
+import sys
+sys.stdin = open("input.txt")
+
 number = int(input())
 
 counter = 0
