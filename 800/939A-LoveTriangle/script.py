@@ -5,21 +5,33 @@ n = input()
 
 planes = [int(p) for p in input().split(' ')]
 
-print(planes)
-
 graph = {}
+pairsList = []
 
 for plane in planes:
   graph[plane] = planes[plane - 1]
+  pairsList.append([plane, planes[plane - 1]])
 
-print(graph)
+groups: list[set[int]] = []
 
-currentPosition = planes[0]
+for [a,b] in pairsList:
+  print(a,b)
+  
+  if len(groups) == 0:
+    groups.append(set([a,b]))
+  for i in range(len(groups)):
+    group = groups[i]
+    if(a in group or b in group):
+      groups[i].add(a)
+      groups[i].add(b)
+      break
+    
+  groups.append(set([a,b]))
 
-stack = [graph[currentPosition]]
+  print(groups)
 
-for pair in graph:
-  print('pair', pair)
+
+print(groups)
 
 # visited = set()
 
