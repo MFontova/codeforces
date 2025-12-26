@@ -39,6 +39,7 @@ for key in register.keys():
     largestKey = key
 
 # From largest key, calculate diameter
+# Necessari refactoritzar perque ara esta comparant amb tots els nodes i nomes ho hauria de fer amb les fulles
 diameter = 0
 [firstValue, firstPath] = register[largestKey]
 for key in register.keys():
